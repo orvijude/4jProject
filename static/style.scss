@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import './breakpoint/breakpoint';
+
+
+$blue: #2E43FF;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    font-size: 50px;
+}
+
+h4, h5, h6 {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 34px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    @include tablet {
+        max-width: 768px;
+    }
+    @include laptop {
+        max-width: 1200px;
+    }
+    @include tablet {
+        max-width: 1900px;
+    }
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.d_none {
+    display: none;
+}
+
+.btn {
+    padding: 10px 30px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+
+    &._white {
+        background-color: #fff;
+        color: $blue;
+        box-shadow: 
+        0px 1px 5px rgba($color: #fff, $alpha: 0.10),
+        0px 2px 4px rgba($color: #fff, $alpha: 0.20);
+        outline: none;
+        border: none;
+        &:hover {
+            background-color: $blue;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+    }
+
+    &._blue {
+        background-color: $blue;
+        color: #fff;
+        box-shadow: 
+        0px 1px 5px rgba($color: $blue, $alpha: 0.10),
+        0px 2px 4px rgba($color: $blue, $alpha: 0.20);
+        outline: none;
+        border: none;
+        &:hover {
+            background-color: #fff;
+            color: $blue;
+            border: 2px solid $blue;
+        }
+    }
+}
+
+.header {
+    background-color: $blue;
+    height: 100vh;
+    border-bottom-right-radius: 250px;
+}
+
+.nav {
+    padding: 50px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_icon {
+    cursor: pointer;
+    width: 30px;
+    z-index: 2;
+    @include laptop {
+        display: none;
+    }
+}
+
+.logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.nav_links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 200px 0 0 40px;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    li {
+        margin: 20px 0;
+    }
+    .item {
+        font-size: 25px;
+        color: #000;
+        text-transform: uppercase;
+        &:hover {
+            color: $blue;
+        }
+    }
+    .btn {
+        &:hover {
+            background-color: $blue;
+            color: #fff;
+        }
+    }
+    @include laptop {
+        display: block;
+        position: relative;
+        background: none;
+        width: 70%;
+        padding: 0;
+        text-align: right;
+        li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        .item {
+            text-transform: capitalize;
+            font-size: 18px;
+            color: #fff;
+            &:hover {
+                color: #fff;
+                border-bottom: 3px solid #fff;
+            }
+        }
+        .btn {
+            &:hover {
+                background-color: $blue;
+                color: #fff;
+                border: 2px solid #fff;
+            }
+        }
+    }
+}
+
+.hero_wrapper {
+    padding: 40px 0 0 0;
+    @include laptop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.hero_text {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    h1 {
+        margin: 0 0 20px 0;
+    }
+    p {
+        margin: 0 0 40px 0;
+    }
+    @include laptop {
+        text-align: left;
+        width: 48%
+    }
+}
+
+.illustration {
+    width: 100%;
+    margin: 40px 0;
+    display: none;
+    img {
+        max-width: 100%;
+    }
+    @include laptop {
+        display: block;
+        width: 48%;
+    }
+}
+
+.form_wrapper {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background: #fff;
+    margin: 40px 0 0 0;
+    padding: 40px 30px;
+    border-radius: 30px;
+    box-shadow: 
+    0 1px 4px rgba($color: #000, $alpha: 0.20),
+    0 1px 4px rgba($color: #000, $alpha: 0.10);
+    h4 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+        margin: 80px 0 0 0;
+        font-size: 14px;
+        button {
+            outline: none;
+            border: none;
+            background-color: #fff;
+            cursor: pointer;
+            color: $blue;
+        }
+    }
+    @include laptop {
+        margin: 0;
+        width: 40%;
+    }
+}
+
+#up_errorMsg, #in_errorMsg {
+    color: red;
+    font-weight: 600;
+}
+
+.btn_center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.input_container {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    label {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 0 10px 0;
+    }
+    input {
+        font-size: 18px;
+        padding: 10px 20px;
+        background-color: rgb(230, 230, 230);
+        outline: none;
+        border: none;
+    }
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .about_left {
+        margin: 20px 0;
+        span {
+            color: $blue;
+        }
+        h4 {
+            font-size: 50px;
+            font-weight: 400;
+        }
+    }
+    @include laptop {
+        flex-direction: row;
+        text-align: left;
+        .about_left {
+            width: 30%;
+            margin: 0;
+        }
+        .about_right {
+            width: 60%;
+        }
+    }
+}
+
+.title {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.work_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    img {
+        box-shadow: 
+        0 1px 4px rgba($color: #000, $alpha: 0.10),
+        0 2px 5px rgba($color: #000, $alpha: 0.20);
+    }
+    @include laptop {
+        flex-direction: row;
+        img {
+            width: 48%;
+        }
+    }
+}
+
+.work_detail {
+    margin: 30px 0 0 0;
+    width: 100%;
+    span {
+        color: $blue;
+    }
+    p {
+        margin: 20px 0 40px 0;
+    }
+    @include laptop {
+        width: 48%;
+    }
+}
+
+.team_wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include laptop {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.team_card {
+    width: 100%;
+    background-color: $blue;
+    color: #fff;
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 
+    0 2px 4px rgba($color: $blue, $alpha: 0.10),
+    0 1px 5px rgba($color: $blue, $alpha: 0.20);
+    h4 {
+        font-size: 25px;
+        font-weight: 600;
+    }
+    p {
+        font-size: 16px;
+        margin: 0 0 30px 0;
+    }
+    .img {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 30px auto;
+        background-color: #fff;
+        border-radius: 100px;
+    }
+    @include laptop {
+        width: 23%;
+        padding: 50px 15px;
+    }
+}
+
+.footer {
+    background-color: $blue;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+}
+
+.sub_pages {
+    background-color: $blue;
+    height: 350px;
+    border-bottom-right-radius: 150px;
+    h1 {
+        margin: 100px 0 0 0;
+        color: #fff;
+    }
+}
+
+.team_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .card {
+        background-color: $blue;
+        margin: 20px 0;
+        padding: 40px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        .img {
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+        @include laptop {
+            flex-direction: row;
+            img {
+                width: 30%;
+            }
+        }
+    }
+}
+
+.card_detail {
+    text-align: center;
+    width: 100%;
+    h4 {
+        font-weight: 600;
+        font-size: 30px;
+        margin: 20px 0 0 0;
+    }
+    p {
+        font-size: 16px;
+        margin: 20px 0 30px 0;
+    }
+    @include laptop {
+        text-align: left;
+        width: 70%;
+        h4 {
+            margin: 0;
+        }
+    }
+}
